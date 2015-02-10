@@ -1,0 +1,15 @@
+smsworks:
+  build: .
+  links:
+    - queue
+  environment:
+    TWILIO_SID:
+    TWILIO_TOKEN:
+    TWILIO_NUMBERS:
+queue:
+  image: rabbitmq:3.4.3-management
+  ports:
+    - "5672"
+    - "15672"
+  environment:
+    RABBITMQ_NODENAME: sms_works

@@ -1,0 +1,8 @@
+{
+ :twilio {:sid #resource-config/env "TWILIO_SID"
+          :token #resource-config/env "TWILIO_TOKEN"
+          :numbers #resource-config/edn #resource-config/env "TWILIO_NUMBERS"}
+ :rabbit-mq {:connection {:host #resource-config/env "QUEUE_PORT_5672_TCP_ADDR"
+                          :port #resource-config/edn #resource-config/env "QUEUE_PORT_5672_TCP_PORT"}
+             :queue "sms"}
+}

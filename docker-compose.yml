@@ -9,6 +9,6 @@ smsworks:
 rabbitmq:
   image: rabbitmq:3.4.3-management
   ports:
-    - 5672
-    - 15672
+    - "5672"
+    - "15672"
   hostname: rabbitmq

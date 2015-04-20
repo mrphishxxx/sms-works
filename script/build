@@ -7,7 +7,7 @@ if [[ -z $SERVICE ]]; then
 fi
 
 if [[ -z $SERVICE_TEMPLATE ]]; then
-  SERVICE_TEMPLATE="${SERVICE}@.service.sample"
+  SERVICE_TEMPLATE="${SERVICE}@.service.template"
 fi
 
 if [[ ! -e $SERVICE_TEMPLATE ]]; then
@@ -57,5 +57,5 @@ perl -p -i -e "s/^Environment=CONTAINER=.*$/Environment=CONTAINER=${SERVICE}/" $
 
 if hash buildbox-artifact 2>/dev/null ; then
   echo '--- saving service file'
-  buildbox-artifact upload ${SERVICE}@.service
+  buildkite-agent artifact upload ${SERVICE}@.service
 fi

@@ -9,8 +9,8 @@ Configure Twilio and Rabbit-MQ, either with a config.edn or the following enviro
     TWILIO_SID = Twilio account SID
     TWILIO_TOKEN = Twilio account auth token
     TWILIO_NUMBERS = Comma separated list of outbound phone numbers
-    RABBITMQ_PORT_5672_TCP_ADDR = Address of Rabbit-MQ host server
-    RABBITMQ_PORT_5672_TCP_PORT = Port of Rabbit-MQ server
+    RABBITMQ_PORT_5672_TCP_ADDR = Address of RabbitMQ host server
+    RABBITMQ_PORT_5672_TCP_PORT = Port of RabbitMQ server
     
 When running with docker-compose, the QUEUE environment variables are automatically set by the linked container.
 

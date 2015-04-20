@@ -12,9 +12,9 @@ EnvironmentFile=/etc/environment
 TimeoutStartSec=10m
 TimeoutStopSec=10m
 
-Environment=DOCKER_REPO=quay.io/democracyworks/sms-works
-Environment=VERSION=coreos-buildkite-f74765b
-Environment=CONTAINER=sms-works
+Environment=DOCKER_REPO=
+Environment=VERSION=
+Environment=CONTAINER=
 Environment=HOME=/root
 
 ExecStartPre=-/usr/bin/docker kill ${CONTAINER}

@@ -43,7 +43,7 @@ Click on queues, select 'sms', scroll down and open up `Publish message`. Put an
 
 ### Running in CoreOS
 
-There is a sms-works@.service file provided in the repo. Look it over and make any desired customizations before deploying.
+There is a sms-works@.service.sample file provided in the repo. Look it over and make any desired customizations before deploying. The DOCKER_REPO, IMAGE_TAG, and CONTAINER values will all be set by the build script.
 
 The `script/build` and `script/deploy` scripts are designed to automate building and deploying to CoreOS.
 
@@ -51,8 +51,8 @@ The `script/build` and `script/deploy` scripts are designed to automate building
 1. Note the resulting image name and push it if needed.
 1. Set your FLEETCTL_TUNNEL env var to a node of the CoreOS cluster you want to deploy to.
 1. Configure the TWILIO_SID, TWILIO_TOKEN, and TWILIO_NUMBERS values in consul.
-1. Make sure rabbitmq services are running.
-1. Run `script/deploy image/name`.
+1. Make sure rabbitmq service is running.
+1. Run `script/deploy`.
 
 ## License
 

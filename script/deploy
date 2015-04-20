@@ -7,7 +7,7 @@ if [[ -z $SERVICE ]]; then
 fi
 
 if [[ ! -e ${SERVICE}@.service ]]; then
-  echo $(buildkite-agent meta-data get service-file) > ${SERVICE}@.service
+  buildkite-artifact download ${SERVICE}@.service .
 fi
 
 fleetctl destroy ${SERVICE}@.service

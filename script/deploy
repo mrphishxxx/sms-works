@@ -6,8 +6,14 @@ if [[ -z $SERVICE ]]; then
   SERVICE=${PWD##*/}
 fi
 
-if [[ ! -e ${SERVICE}@.service ]]; then
+if hash buildkite-agent 2>/dev/null ; then
+  echo '--- retrieving service file'
   buildkite-agent artifact download ${SERVICE}@.service .
+fi
+
+if [[ ! -e ${SERVICE}@.service ]]; then
+  echo 'Please provide a service file'
+  exit 1
 fi
 
 fleetctl destroy ${SERVICE}@.service

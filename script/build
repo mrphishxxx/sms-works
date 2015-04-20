@@ -55,7 +55,7 @@ perl -p -i -e "s|^Environment=DOCKER_REPO=.*$|Environment=DOCKER_REPO=${DOCKER_R
 perl -p -i -e "s/^Environment=VERSION=.*$/Environment=VERSION=${IMAGE_TAG}/" ${SERVICE}@.service
 perl -p -i -e "s/^Environment=CONTAINER=.*$/Environment=CONTAINER=${SERVICE}/" ${SERVICE}@.service
 
-if hash buildbox-artifact 2>/dev/null ; then
+if hash buildkite-agent 2>/dev/null ; then
   echo '--- saving service file'
   buildkite-agent artifact upload ${SERVICE}@.service
 fi

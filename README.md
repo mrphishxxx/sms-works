@@ -43,7 +43,7 @@ Click on queues, select 'sms', scroll down and open up `Publish message`. Put an
 
 ### Running in CoreOS
 
-There is a sms-works@.service.sample file provided in the repo. Look it over and make any desired customizations before deploying. The DOCKER_REPO, IMAGE_TAG, and CONTAINER values will all be set by the build script.
+There is a sms-works@.service.template file provided in the repo. Look it over and make any desired customizations before deploying. The DOCKER_REPO, IMAGE_TAG, and CONTAINER values will all be set by the build script.
 
 The `script/build` and `script/deploy` scripts are designed to automate building and deploying to CoreOS.
 

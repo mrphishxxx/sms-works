@@ -50,7 +50,7 @@ The `script/build` and `script/deploy` scripts are designed to automate building
 1. Run `script/build`.
 1. Note the resulting image name and push it if needed.
 1. Set your FLEETCTL_TUNNEL env var to a node of the CoreOS cluster you want to deploy to.
-1. Configure the TWILIO_SID, TWILIO_TOKEN, and TWILIO_NUMBERS values in consul.
+1. Configure the TWILIO_SID, TWILIO_TOKEN, and TWILIO_NUMBERS values in consul at "sms-works/twilio/sid", "sms-works/twilio/token", and "sms-works/twilio/numbers" respectively. You can see the full path requests in the service file template.
 1. Make sure rabbitmq service is running.
 1. Run `script/deploy`.
 

@@ -12,7 +12,7 @@ if hash buildkite-agent 2>/dev/null ; then
 fi
 
 if [[ ! -e ${SERVICE}@.service ]]; then
-  echo 'Please provide a service file'
+  echo "${SERVICE}@.service file is missing. Run script/build to create it."
   exit 1
 fi
 

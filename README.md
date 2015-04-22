@@ -9,8 +9,8 @@ Configure Twilio and Rabbit-MQ, either with a config.edn or the following enviro
     TWILIO_SID = Twilio account SID
     TWILIO_TOKEN = Twilio account auth token
     TWILIO_NUMBERS = Comma separated list of outbound phone numbers
-    QUEUE_PORT_5672_TCP_ADDR = Address of Rabbit-MQ host server
-    QUEUE_PORT_5672_TCP_PORT = Port of Rabbit-MQ server
+    RABBITMQ_PORT_5672_TCP_ADDR = Address of RabbitMQ host server
+    RABBITMQ_PORT_5672_TCP_PORT = Port of RabbitMQ server
     
 When running with docker-compose, the QUEUE environment variables are automatically set by the linked container.
 
@@ -40,6 +40,19 @@ Substitute in your Twilio SID, Auth Token, and one or more numbers.
 Run `docker ps` and look for the first port of the rabbitmq container, that's the port the rabbitmq management console is running on. Open up your browser to localdocker:PORT (assuming you use localdocker to point to the docker VM), and enter using username: 'guest' password: 'guest'.
 
 Click on queues, select 'sms', scroll down and open up `Publish message`. Put an edn formatted message (see Usage for an example) into the Payload and click on the Publish message button. If your credentials and twilio numbers are valid, you should receive an SMS.
+
+### Running in CoreOS
+
+There is a sms-works@.service.template file provided in the repo. Look it over and make any desired customizations before deploying. The DOCKER_REPO, IMAGE_TAG, and CONTAINER values will all be set by the build script.
+
+The `script/build` and `script/deploy` scripts are designed to automate building and deploying to CoreOS.
+
+1. Run `script/build`.
+1. Note the resulting image name and push it if needed.
+1. Set your FLEETCTL_TUNNEL env var to a node of the CoreOS cluster you want to deploy to.
+1. Configure the TWILIO_SID, TWILIO_TOKEN, and TWILIO_NUMBERS values in consul at "sms-works/twilio/sid", "sms-works/twilio/token", and "sms-works/twilio/numbers" respectively. You can see the full path requests in the service file template.
+1. Make sure rabbitmq service is running.
+1. Run `script/deploy`.
 
 ## License
 

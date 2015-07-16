@@ -22,7 +22,9 @@
   (let [sid (config :twilio :sid)
         token (config :twilio :token)
         {:keys [from to body]} sms-map
-        from (or (present? from) (select-number))
+        from (if (present? from)
+               from
+               (select-number))
         message {:From from
                  :To to
                  :Body body}

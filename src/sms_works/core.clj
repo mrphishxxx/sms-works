@@ -24,7 +24,7 @@
         _ (log/debug "Sending SMS:" (pr-str message))
         result (twilio/with-auth sid token
                  (twilio/send-sms message))]
-    (log/debug "Twilio result:" (pr-str result))))
+    (log/debug "Twilio result:" (pr-str @result))))
 
 (defn message-handler
   [ch meta ^bytes payload]

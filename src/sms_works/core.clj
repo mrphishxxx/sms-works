@@ -17,11 +17,14 @@
   (let [sid (config :twilio :sid)
         token (config :twilio :token)
         {:keys [from to body]} sms-map
-        from (or from (select-number))]
-    (twilio/with-auth sid token
-      (twilio/send-sms {:From from
-                        :To to
-                        :Body body}))))
+        from (or from (select-number))
+        message {:From from
+                 :To to
+                 :Body body}
+        _ (log/debug "Sending SMS:" (pr-str message))
+        result (twilio/with-auth sid token
+                 (twilio/send-sms message))]
+    (log/debug "Twilio result:" (pr-str result))))
 
 (defn message-handler
   [ch meta ^bytes payload]

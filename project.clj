@@ -5,6 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/tools.logging "0.3.1"]
+                 [ch.qos.logback/logback-classic "1.1.3"]
                  [turbovote.resource-config "0.1.4"]
                  [twilio-api "1.0.0"]
                  [com.novemberain/langohr "3.2.0"]]

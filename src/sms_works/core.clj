@@ -4,12 +4,17 @@
             [twilio.core :as twilio]
             [turbovote.resource-config :refer [config]]
             [langohr.consumers :as lc]
-            [sms-works.queue :as queue])
+            [sms-works.queue :as queue]
+            [clojure.string :as str])
   (:gen-class))
 
 (defn select-number
   []
   (rand-nth (config :twilio :numbers)))
+
+(defn present? [s]
+  (not (or (nil? s)
+           (str/blank? s))))
 
 (defn send-sms
   "Sends an SMS message using Twilio"
@@ -17,7 +22,7 @@
   (let [sid (config :twilio :sid)
         token (config :twilio :token)
         {:keys [from to body]} sms-map
-        from (or from (select-number))
+        from (or (present? from) (select-number))
         message {:From from
                  :To to
                  :Body body}

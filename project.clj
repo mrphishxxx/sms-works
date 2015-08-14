@@ -7,7 +7,7 @@
                  [org.clojure/tools.logging "0.3.1"]
                  [ch.qos.logback/logback-classic "1.1.3"]
                  [turbovote.resource-config "0.1.4"]
-                 [twilio-api "1.0.0"]
+                 [twilio-api "1.0.1"]
                  [com.novemberain/langohr "3.2.0"]]
   :main ^:skip-aot sms-works.core
   :target-path "target/%s"
